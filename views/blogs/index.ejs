@@ -1,0 +1,47 @@
+<% layout('layout/boilerplate') -%>
+    <section
+        style="background-image: url(https://images.unsplash.com/photo-1647866873870-92d45763ef44?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); height: 800px; background-size: cover; background-position: center; border-bottom: 1px solid white;">
+        <div class="column">
+            <div class="col-lg-7 ps-5">
+                <br>
+                <br>
+                <br>
+                <h1 class="display-5" style="color: white; font-size: 10rem; font-family: Playfair Display, serif;">
+                    Human Stories and Ideas <span class="blinking-text">|</span>
+                </h1>
+                <p style="color: white; font-size: 1.8rem;">It's easy and free to post your thinking on any topic and
+                    connect with millions of readers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5">
+        <div class="row justify-content-between">
+            <% for(let blog of blogs){%>
+                <div class="col-lg-5 mb-3">
+                    <a href="/blogs/<%=blog.id%>" class="text-decoration-none text-dark" >
+                        <div class="card mb-4" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="<%=blog.img%>" class="img-fluid rounded-start h-100" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%=blog.title%>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%=blog.desc.substring(0,80)%>
+                                        </p>
+                                        <p class="card-text"><medium class="text-muted">By: <%=blog.author%></small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+                <% } %>
+        </div>
+    </section>
